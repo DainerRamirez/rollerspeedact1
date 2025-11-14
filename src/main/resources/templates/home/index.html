@@ -1,38 +1,119 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title th:text="${title} ?: 'Aplicación'">Aplicación</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roller Speed - Escuela de Patinaje</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .hero {
+            background: url('https://www.eluniversal.com.co/resizer/v2/OLJKEL6O6FAVPBP7Y2XBRXCHP4.jpg?auth=7e62857d96e7d461b3686b7694cec11dcf505f88ee1b9afb4ee1d4fabc693ec0&smart=true&width=1200&height=800&quality=70') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 0 0 10px black;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg bg-light mb-4">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" th:href="@{/}">Roller Speed</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/items/new}">Crear</a></li>
+            <span class="navbar-brand">Roller Speed</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/mision">Misión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/vision">Visión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/valores">Valores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/eventos">Eventos</a></li>
+
                 </ul>
-                <!-- Formulario de búsqueda -->
-                <form class="d-flex" th:action="@{/}" method="get">
-                    <input class="form-control me-2" name="q" type="search" placeholder="Buscar..." th:value="${q}">
-                    <button class="btn btn-outline-primary" type="submit">Buscar</button>
-                </form>
             </div>
         </div>
     </nav>
 
-    <!-- Contenido principal -->
-    <div class="container">
-        <h1 class="mb-4" th:text="${title} ?: 'Bienvenido a Roller Speed'">Bienvenido a Roller Speed</h1>
-        <p>Escuela de patinaje.</p>
+    <!-- HERO -->
+    <header class="hero">
+        <div class="text-center">
+            <h1 class="display-3 fw-bold">Escuela de Patinaje Roller Speed</h1>
+            <p class="lead">Pasión, disciplina y velocidad sobre ruedas</p>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container py-5">
+
+        <h2 class="section-title text-center">¿Qué es Roller Speed?</h2>
+        <p class="text-center mb-5">
+            Somos una escuela dedicada a la formación deportiva en patinaje,
+            impulsando el talento desde principiantes hasta niveles competitivos.
+        </p>
+
+        <!-- TARJETAS -->
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="https://www.comfenalco.com.co/wp-content/uploads/2024/05/patinaje-escuela.webp"
+                        class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Formación Deportiva</h5>
+                        <p class="card-text">Entrenamientos dirigidos por instructores profesionales certificados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="https://www.rollerfanatic.com/wp-content/uploads/clases-patinaje-ninos-adultos-salamanca-rollerfanatic.jpg"
+                        class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Clases por Niveles</h5>
+                        <p class="card-text">Programas diseñados para niños, jóvenes y adultos en diferentes categorías.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card h-100 shadow">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Mundial_Italia_2012.jpg"
+                        class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Competencias</h5>
+                        <p class="card-text">Participación en eventos locales, regionales y nacionales.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-light text-center py-3">
+        Escuela de Patinaje Roller Speed © 2025 - Todos los derechos reservados
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
