@@ -4,29 +4,26 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "instructores")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Usuario {
+public class Instructor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String nombre;
 
-    @Column(name = "fecha_nacimiento")
-    private String fechaNacimiento;
-
-    private String genero;
+    @Column(nullable = false, unique = true)
     private String correo;
+
+    @Column(nullable = false)
     private String telefono;
 
-    @Column(name = "metodo_pago")
-    private String metodoPago;
-
-    @Enumerated(EnumType.STRING)
-    private Rol rol;
+    @Column(nullable = false)
+    private String nivelExperiencia; // principiante, avanzado, etc.
 }
