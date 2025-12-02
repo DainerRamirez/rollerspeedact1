@@ -1,26 +1,43 @@
 package com.rollerspeed.rollerspeed.controller;
 
+import com.rollerspeed.rollerspeed.models.Alumno;
+import com.rollerspeed.rollerspeed.repository.AlumnoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/alumno")
 public class AlumnoController {
 
-    // Página principal del módulo alumnos
-    @GetMapping("/alumnos")
-    public String alumnos() {
-        return "alumnos/index";
+    @Autowired
+    private AlumnoRepository alumnoRepository;
+
+    @GetMapping("/registro")
+    public String registro(Alumno alumno) {
+        return "alumno/registro";
     }
 
-    // Formulario de registro de alumno
-    @GetMapping("/alumnos/registro")
-    public String registroAlumno() {
-        return "alumnos/registro";
+    @PostMapping("/registro")
+    public String guardar(Alumno alumno) {
+        alumnoRepository.save(alumno);
+        return "redirect:/alumno/listar";
     }
 
-    // Listado de alumnos
-    @GetMapping("/alumnos/lista")
-    public String listaAlumnos() {
-        return "alumnos/lista";
+    @GetMapping("/listar")
+    public String listar(Model model) {
+        model.addAttribute("alumnos", alumnoRepository.findAll());
+        return "alumno/listar";
+    }
+
+    @GetMapping("/calendario")
+    public String calendario() {
+        return "alumno/calendario";
+    }
+
+    @GetMapping("/menu")
+    public String menu() {
+        return "alumno/modalumnos";
     }
 }

@@ -1,14 +1,11 @@
 package com.rollerspeed.rollerspeed.models;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "instructores")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Instructor {
 
     @Id
@@ -18,12 +15,18 @@ public class Instructor {
     @Column(nullable = false)
     private String nombre;
 
+    @Column(nullable = false)
+    private String apellido;
+
     @Column(nullable = false, unique = true)
-    private String correo;
+    private String documento;
 
     @Column(nullable = false)
     private String telefono;
 
     @Column(nullable = false)
-    private String nivelExperiencia; // principiante, avanzado, etc.
+    private String correo;
+
+    @Column(nullable = false)
+    private String especialidad; // Ej: velocidad, patinaje artístico
 }
