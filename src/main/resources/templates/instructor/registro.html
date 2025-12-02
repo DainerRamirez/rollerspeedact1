@@ -9,42 +9,23 @@
 </head>
 
 <body>
-
     <div class="container py-5">
         <h1 class="text-center mb-4">Registrar Instructor</h1>
-
         <div class="card shadow p-4">
-
-            <form method="POST" action="/instructor/registro">
-
-                <div class="mb-3">
-                    <label>Nombre</label>
-                    <input type="text" class="form-control" name="nombre" required>
+            <form method="POST" action="/instructores/registro">
+                <div class="mb-3"><label>Nombre</label><input type="text" class="form-control" name="nombre" required>
                 </div>
-
-                <div class="mb-3">
-                    <label>Apellido</label>
-                    <input type="text" class="form-control" name="apellido" required>
-                </div>
-
-                <div class="mb-3">
-                    <label>Documento</label>
-                    <input type="text" class="form-control" name="documento" required>
-                </div>
-
-                <div class="mb-3">
-                    <label>Teléfono</label>
-                    <input type="text" class="form-control" name="telefono">
-                </div>
-
+                <div class="mb-3"><label>Apellido</label><input type="text" class="form-control" name="apellido"
+                        required></div>
+                <div class="mb-3"><label>Documento</label><input type="text" class="form-control" name="documento"
+                        required></div>
+                <div class="mb-3"><label>Teléfono</label><input type="text" class="form-control" name="telefono"></div>
+                <div class="mb-3"><label>Correo</label><input type="email" class="form-control" name="correo"></div>
                 <button type="submit" class="btn btn-primary w-100">Registrar</button>
             </form>
-
-            <a href="/instructor/modulo" class="btn btn-secondary w-100 mt-3">Salir</a>
-
+            <a href="/instructores/modinstructor" class="btn btn-secondary w-100 mt-3">Salir</a>
         </div>
     </div>
-
 </body>
 
 </html>

@@ -1,33 +1,67 @@
 package com.rollerspeed.rollerspeed.models;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 @Entity
-@Table(name = "clases")
-@Data
 public class Clase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String nombreClase;
-
-    @Column(nullable = false)
+    private String nombre;
+    private String horario;
+    private String instructor;
+    private Integer duracion;
     private String descripcion;
 
-    @Column(nullable = false)
-    private String dia; // Ej: Lunes, Martes, etc.
+    // --- Getters y Setters ---
 
-    @Column(nullable = false)
-    private String horaInicio; // Ej: "15:00"
+    public Long getId() {
+        return id;
+    }
 
-    @Column(nullable = false)
-    private String horaFin; // Ej: "17:00"
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    @ManyToOne
-    @JoinColumn(name = "instructor_id", nullable = false)
-    private Instructor instructor;
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
+    }
+
+    public Integer getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(Integer duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }
